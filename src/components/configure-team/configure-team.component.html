@@ -1,0 +1,34 @@
+<ion-content>
+  <form [formGroup]="teamForm" (ngSubmit)="submitForm()" novalidate>
+    <ion-item>
+      <ion-label>Team: </ion-label>
+      <ion-input formControlName="teamName" placeholder="Team Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Racer 1: </ion-label>
+      <ion-input
+        formControlName="racerOneTime"
+        placeholder="00:00.000"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Racer 2: </ion-label>
+      <ion-input
+        formControlName="racerTwoTime"
+        placeholder="00:00.000"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Racer 3: </ion-label>
+      <ion-input
+        formControlName="racerThreeTime"
+        placeholder="00:00.000"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button type="submit" fill="outline">
+        <ion-label>Submit</ion-label>
+      </ion-button>
+    </ion-item>
+  </form>
+</ion-content>
