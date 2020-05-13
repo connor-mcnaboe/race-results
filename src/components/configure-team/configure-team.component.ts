@@ -7,15 +7,15 @@ import { ToastController } from "@ionic/angular";
 @Component({
   selector: "app-configure-team",
   templateUrl: "./configure-team.component.html",
-  styleUrls: ["./configure-team.component.scss"]
+  styleUrls: ["./configure-team.component.scss"],
 })
 export class ConfigureTeamComponent implements OnInit {
   teamForm: FormGroup;
   isSubmitted = false;
 
   constructor(
-    public formBuilder: FormBuilder,
-    public toastController: ToastController,
+    private formBuilder: FormBuilder,
+    private toastController: ToastController,
     public teamDataShare: TeamDataShareService
   ) {}
 
@@ -26,23 +26,23 @@ export class ConfigureTeamComponent implements OnInit {
         "",
         [
           Validators.required,
-          Validators.pattern("[0-9][0-9]+:[0-9][0-9]+\.[0-9]{3,3}")
-        ]
+          Validators.pattern("[0-9][0-9]+:[0-9][0-9]+.[0-9]{3,3}"),
+        ],
       ],
       racerTwoTime: [
         "",
         [
           Validators.required,
-          Validators.pattern("[0-9][0-9]+:[0-9][0-9]+\.[0-9]{3,3}")
-        ]
+          Validators.pattern("[0-9][0-9]+:[0-9][0-9]+.[0-9]{3,3}"),
+        ],
       ],
       racerThreeTime: [
         "",
         [
           Validators.required,
-          Validators.pattern("[0-9][0-9]+:[0-9][0-9]+\.[0-9]{3,3}")
-        ]
-      ]
+          Validators.pattern("[0-9][0-9]+:[0-9][0-9]+.[0-9]{3,3}"),
+        ],
+      ],
     });
   }
 
@@ -62,10 +62,10 @@ export class ConfigureTeamComponent implements OnInit {
         ),
         racerThreeTime: this.convertTimeStringToMilli(
           this.teamForm.value.racerThreeTime
-        )
+        ),
       };
       this.teamDataShare.addTeam(addedTeam);
-      this.presentSuccessToast();
+      this.teamForm.reset();
     }
   }
 
@@ -81,17 +81,9 @@ export class ConfigureTeamComponent implements OnInit {
     const toast = await this.toastController.create({
       message:
         "Please provide all the required values & use the 00:00.000 format.",
+      position: "top",
       duration: 3000,
-      color: "warning"
-    });
-    toast.present();
-  }
-
-  async presentSuccessToast() {
-    const toast = await this.toastController.create({
-      message: "Team Added.",
-      duration: 3000,
-      color: "success"
+      color: "danger",
     });
     toast.present();
   }

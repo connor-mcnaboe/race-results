@@ -1,0 +1,31 @@
+<ion-content>
+  <ion-grid>
+  <ion-row fxFlex>
+    <ion-col>
+      <div class="team-list-column-header">Rank</div>
+    </ion-col>
+    <ion-col fxFlex>  
+      <div class="team-list-column-header">Team</div>
+    </ion-col>
+    <ion-col>
+      <div class="team-list-column-header team-list-timer-header">
+        <ion-icon name="timer-outline"></ion-icon> 1
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="team-list-column-header team-list-timer-header">
+        <ion-icon name="timer-outline"></ion-icon>
+        2
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="team-list-column-header team-list-timer-header">
+        <ion-icon name="timer-outline"></ion-icon> 3
+      </div>
+    </ion-col>
+  </ion-row>
+  <div *ngFor="let team of teams; let i = index">
+    <app-team-list-entry [team]="team" [rank]="i"></app-team-list-entry>
+  </div>
+</ion-grid>
+</ion-content>
