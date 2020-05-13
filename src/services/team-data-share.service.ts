@@ -6,18 +6,20 @@ import {Team } from '../model/team';
   providedIn: 'root'
 })
 export class TeamDataShareService {
-  
-  // Subjects
+  teams: Team[] = [];
   private teamUpdatedSubject = new Subject(); 
   
   constructor() { }
   
-  // Observables
   teamUpdate$ = this.teamUpdatedSubject.asObservable();
 
-  // Methods
   addTeam(team: Team): void {
-    console.log(team)
-    this.teamUpdatedSubject.next(team);
+    this.teams.push(team)
+    this.teamUpdatedSubject.next(this.teams);
+  }
+
+  clearTeams(): void { 
+    this.teams = [];
+    this.teamUpdatedSubject.next(this.teams);
   }
 }

@@ -7,6 +7,7 @@ import { TabsPageRoutingModule } from './tabs-routing.module';
 
 import { TabsPage } from './tabs.page';
 import { ComponentsModule } from 'src/components/comoponent.module';
+import { TeamDataShareService } from 'src/services/team-data-share.service';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { ComponentsModule } from 'src/components/comoponent.module';
     ComponentsModule,
     TabsPageRoutingModule
   ],
-  declarations: [TabsPage]
+  declarations: [TabsPage], 
+  providers: [TeamDataShareService]
 })
 export class TabsPageModule {}
