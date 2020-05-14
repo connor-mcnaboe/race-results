@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { IonicModule } from "@ionic/angular";
 
 import { TeamListEntryComponent } from "./team-list-entry.component";
+import { SharedModule } from 'src/pipe/shared.module';
 
 describe("TeamListEntryComponent", () => {
   let component: TeamListEntryComponent;
@@ -10,7 +11,7 @@ describe("TeamListEntryComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TeamListEntryComponent],
-      imports: [IonicModule.forRoot()],
+      imports: [IonicModule.forRoot(), SharedModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TeamListEntryComponent);

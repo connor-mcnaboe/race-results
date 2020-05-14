@@ -3,6 +3,7 @@ import { IonicModule } from "@ionic/angular";
 
 import { TeamListComponent } from "./team-list.component";
 import { TeamListEntryComponent } from "./team-list-entry/team-list-entry.component";
+import { SharedModule } from 'src/pipe/shared.module';
 
 describe("TeamListComponent", () => {
   let component: TeamListComponent;
@@ -11,7 +12,7 @@ describe("TeamListComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TeamListComponent, TeamListEntryComponent],
-      imports: [IonicModule.forRoot()],
+      imports: [IonicModule.forRoot(), SharedModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TeamListComponent);
